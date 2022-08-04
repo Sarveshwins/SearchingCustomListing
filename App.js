@@ -4,7 +4,7 @@ import Searching from "./src/Searching";
 import Data from "./src/data/generated.json";
 
 const App = () => {
-  const listing = ["name"];
+  const searchable = ["name", "email", "phone", "address", "company"];
   const render = [
     {
       title: "Name",
@@ -32,20 +32,24 @@ const App = () => {
     },
   ];
   const onPressOnCard = () => {};
-  const placeholder = "Search.................";
+  const placeholder = "Search";
+  const sort = {
+    field: "name",
+    order: "asc",
+  };
   return (
     <>
       <Searching
         render={render} // items which are rendered on the card
-        listing={listing} // Listing of fields to be displayed on the card
+        // searchable={searchable} // Listing of fields to be searched from data source
         Data={Data} // Data is an array of objects
-        onPressOnCard={(item) => {
-          console.log(item);
+        onPress={(item) => {
+          console.log(item?._id);
         }} // Here we can pass the function to onPressOnCard prop of Searching component
-        searchPlaceholder={placeholder} // Search placeholder
-        autoCapitalize={"characters"} //characters || sentences || words || none
-        field="name" // field to be sorted
-        order="asc" // mode of sorting asc || desc
+        // searchPlaceholder={placeholder} // Search placeholder
+        // autoCapitalize={"characters"} //characters || sentences || words || none
+
+        // sort={sort} // sort function ||  field to be sorted ||  mode of sorting asc || desc
       />
     </>
   );

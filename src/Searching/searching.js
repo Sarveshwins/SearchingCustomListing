@@ -8,28 +8,27 @@ import {
   TextInput,
 } from "react-native";
 import React, { useState } from "react";
-
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Searching from "../components/Searching";
 
-const SearchingAndListing = (props) => {
+const SearchingAndsearchable = (props) => {
   const {
     render,
-    listing,
+    searchable,
     Data,
     searchPlaceholder,
     autoCapitalize,
-    field,
-    order,
-    onPressOnCard,
+    sort,
+    onPress,
   } = props;
+  const { field, order } = sort || {};
   const [searching, setSearching] = useState("");
 
   const onMultipleSearching = (item, field, sort) => {
     return onSortingByField(field, sort).filter((data) => {
       return (
         item?.length === 0 ||
-        listing.some((list) => {
+        searchable.some((list) => {
           return data?.[list]
             ?.toLowerCase()
             ?.includes(item.trim()?.toLowerCase());
@@ -52,39 +51,54 @@ const SearchingAndListing = (props) => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.secondaryContainer}>
-        <View style={styles.searchingContainer}>
-          <View style={styles.leftSearchingArea}>
-            <TextInput
-              style={{ flex: 1 }}
-              placeholder={searchPlaceholder}
-              autoCapitalize={autoCapitalize}
-              autoCorrect={false}
-              value={searching}
-              onChangeText={setSearching}
+      <View
+        style={[
+          styles.secondaryContainer,
+          !Data || !render
+            ? { justifyContent: "center", alignItems: "center" }
+            : {},
+        ]}
+      >
+        {Data && render ? (
+          <>
+            {searchable && (
+              <View style={styles.searchingContainer}>
+                <View style={styles.leftSearchingArea}>
+                  <TextInput
+                    style={{ flex: 1 }}
+                    placeholder={
+                      searchPlaceholder ? searchPlaceholder : "Search"
+                    }
+                    autoCapitalize={autoCapitalize && autoCapitalize}
+                    autoCorrect={false}
+                    value={searching}
+                    onChangeText={setSearching}
+                  />
+                </View>
+                <Pressable style={styles.rightSearchingArea}>
+                  <AntDesign name="search1" size={30} color={"white"} />
+                </Pressable>
+              </View>
+            )}
+            <FlatList
+              data={onMultipleSearching(searching, field, order)}
+              renderItem={({ item }) => (
+                <Searching searching={item} render={render} onPress={onPress} />
+              )}
+              keyExtractor={(item) => item._id}
             />
-          </View>
-          <Pressable style={styles.rightSearchingArea}>
-            <AntDesign name="search1" size={30} color={"white"} />
-          </Pressable>
-        </View>
-        <FlatList
-          data={onMultipleSearching(searching, field, order)}
-          renderItem={({ item }) => (
-            <Searching
-              searching={item}
-              render={render}
-              onPressOnCard={onPressOnCard}
-            />
-          )}
-          keyExtractor={(item) => item._id}
-        />
+          </>
+        ) : (
+          <Text style={{ fontSize: 15, fontWeight: "500" }}>
+            Nothing to Preview
+          </Text>
+        )}
       </View>
     </SafeAreaView>
   );
 };
 
-export default SearchingAndListing;
+export default SearchingAndsearchable;
 
 const styles = StyleSheet.create({
   mainContainer: {

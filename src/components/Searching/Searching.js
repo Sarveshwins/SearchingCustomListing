@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image, Pressable } from "react-native";
 import React from "react";
 
 const Searching = (props) => {
-  const { searching, render, onPressOnCard } = props;
+  const { searching, render, onPress } = props;
   const Item = ({ search }) => {
     return (
       <>
@@ -22,7 +22,10 @@ const Searching = (props) => {
   };
 
   return (
-    <Pressable style={styles.card} onPress={() => onPressOnCard(searching)}>
+    <Pressable
+      style={styles.card}
+      onPress={() => (onPress ? onPress(searching) : console.log(searching))}
+    >
       <Item search={searching} />
     </Pressable>
   );
