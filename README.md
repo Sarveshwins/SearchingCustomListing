@@ -14,8 +14,10 @@ or npm:
 
 ```
 npm install --save react-native-searching-and-listing
-## Usage
+
 ```
+
+## Usage
 
 ```js
 import React from "react";
