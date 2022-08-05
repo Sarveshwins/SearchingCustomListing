@@ -12,17 +12,17 @@ yarn add react-native-searching-and-listing
 
 or npm:
 
-````
+```
 npm install --save react-native-searching-and-listing
 ## Usage
+```
 
 ```js
+import React from "react";
+import { View } from "react-native";
+import Searching from "react-native-searching-listing";
 
-import React from 'react'
-import { View} from 'react-native'
-import Searching from 'react-native-searching-listing'
-
-const index=()=>{
+const index = () => {
   const searchable = ["name", "email", "phone", "address", "company"];
   const render = [
     {
@@ -66,15 +66,13 @@ const index=()=>{
           console.log(item?._id);
         }} // Here we can pass the function to onPressOnCard prop of Searching component
         searchPlaceholder={placeholder} // Search placeholder
-         autoCapitalize={"characters"} //characters || sentences || words || none
+        autoCapitalize={"characters"} //characters || sentences || words || none
 
         // sort={sort} // sort function ||  field to be sorted ||  mode of sorting asc || desc
       />
     </>
   );
+};
 
-}
-
-export default index
-
-````
+export default index;
+```
