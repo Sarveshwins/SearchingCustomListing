@@ -7,13 +7,13 @@
 using either Yarn:
 
 ```
-yarn add react-native-searching-and-listing
+yarn add react-native-search-filter-sort
 ```
 
 or npm:
 
 ```
-npm install --save react-native-searching-and-listing
+npm i react-native-search-filter-sort
 
 ```
 
@@ -22,7 +22,7 @@ npm install --save react-native-searching-and-listing
 ```js
 import React from "react";
 import { View } from "react-native";
-import Searching from "react-native-searching-listing";
+import Searching from "react-native-search-filter-sort";
 import Data from "./src/data/generated.json";
 
 const index = () => {
