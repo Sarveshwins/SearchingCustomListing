@@ -1,4 +1,3 @@
-import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Searching from "./src/Searching";
 import Data from "./src/data/generated.json";
@@ -22,14 +21,15 @@ const App = () => {
       title: "Company",
       value: "company",
     },
+
     // {
     //   title: "Gender",
     //   value: "gender",
     // },
-    {
-      title: "Eye Color",
-      value: "eyeColor",
-    },
+    // {
+    //   title: "Eye Color",
+    //   value: "eyeColor",
+    // },
   ];
   const onPressOnCard = () => {};
   const placeholder = "Search";
@@ -47,11 +47,17 @@ const App = () => {
           console.log(item?._id);
         }} // Here we can pass the function to onPressOnCard prop of Searching component
         searchPlaceholder={placeholder} // Search placeholder
-        autoCapitalize={"characters"} //characters || sentences || words || none
+        autoCapitalize={"none"} //characters || sentences || words || none
         sort={sort} // sort function ||  field to be sorted ||  mode of sorting asc || desc
+        mode
       />
     </>
   );
 };
 
 export default App;
+
+// hello  world
+// hello  world
+// hello  world
+// hello  world

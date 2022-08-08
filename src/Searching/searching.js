@@ -10,6 +10,7 @@ import {
 import React, { useState } from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Searching from "../components/Searching";
+import SearchingCard from "../components/SearchingCard";
 
 const SearchingAndListing = (props) => {
   const {
@@ -20,6 +21,7 @@ const SearchingAndListing = (props) => {
     autoCapitalize,
     sort,
     onPress,
+    mode,
   } = props;
   const { field, order } = sort || {};
   const [searching, setSearching] = useState("");
@@ -80,13 +82,32 @@ const SearchingAndListing = (props) => {
                 </Pressable>
               </View>
             )}
-            <FlatList
-              data={onMultipleSearching(searching, field, order)}
-              renderItem={({ item }) => (
-                <Searching searching={item} render={render} onPress={onPress} />
-              )}
-              keyExtractor={(item) => item._id}
-            />
+            {mode ? (
+              <FlatList
+                data={onMultipleSearching(searching, field, order)}
+                renderItem={({ item }) => (
+                  <Searching
+                    searching={item}
+                    render={render}
+                    onPress={onPress}
+                  />
+                )}
+                keyExtractor={(item, index) => item + index}
+              />
+            ) : (
+              <FlatList
+                data={onMultipleSearching(searching, field, order)}
+                numColumns={2}
+                renderItem={({ item }) => (
+                  <SearchingCard
+                    searching={item}
+                    render={render}
+                    onPress={onPress}
+                  />
+                )}
+                keyExtractor={(item, index) => item + index}
+              />
+            )}
           </>
         ) : (
           <Text style={{ fontSize: 15, fontWeight: "500" }}>
