@@ -41,15 +41,14 @@ const App = () => {
     <>
       <Searching
         render={render} // items which are rendered on the card
-        // searchable={searchable} // Listing of fields to be searched from data source
+        searchable={searchable} // Listing of fields to be searched from data source
         Data={Data} // Data is an array of objects
         onPress={(item) => {
           console.log(item?._id);
         }} // Here we can pass the function to onPressOnCard prop of Searching component
-        // searchPlaceholder={placeholder} // Search placeholder
-        // autoCapitalize={"characters"} //characters || sentences || words || none
-
-        // sort={sort} // sort function ||  field to be sorted ||  mode of sorting asc || desc
+        searchPlaceholder={placeholder} // Search placeholder
+        autoCapitalize={"characters"} //characters || sentences || words || none
+        sort={sort} // sort function ||  field to be sorted ||  mode of sorting asc || desc
       />
     </>
   );

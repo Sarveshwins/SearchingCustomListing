@@ -8,13 +8,13 @@ const Searching = (props) => {
       <>
         {render.map((item, index) => {
           return (
-            <>
+            <View style={styles.nameStripe} key={`${index}`}>
               <NameStripe
                 tittle={item?.title}
                 value={search[item.value]}
                 key={item.title}
               />
-            </>
+            </View>
           );
         })}
       </>
@@ -34,14 +34,14 @@ const Searching = (props) => {
 const NameStripe = (props) => {
   const { tittle, value, index } = props;
   return (
-    <View style={styles.nameStripe} key={`${index}--${value}`}>
+    <>
       <View style={{ flex: 1 }}>
         <Text>{tittle}</Text>
       </View>
       <View style={{ flex: 3 }}>
         <Text>{value}</Text>
       </View>
-    </View>
+    </>
   );
 };
 export default Searching;

@@ -1,4 +1,4 @@
-package com.questionbank.newarchitecture;
+package com.searching.dits.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.questionbank.BuildConfig;
-import com.questionbank.newarchitecture.components.MainComponentsRegistry;
-import com.questionbank.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.searching.dits.BuildConfig;
+import com.searching.dits.newarchitecture.components.MainComponentsRegistry;
+import com.searching.dits.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

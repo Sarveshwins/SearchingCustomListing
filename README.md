@@ -23,6 +23,7 @@ npm install --save react-native-searching-and-listing
 import React from "react";
 import { View } from "react-native";
 import Searching from "react-native-searching-listing";
+import Data from "./src/data/generated.json";
 
 const index = () => {
   const searchable = ["name", "email", "phone", "address", "company"];

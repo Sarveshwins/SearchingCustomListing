@@ -11,7 +11,7 @@ import React, { useState } from "react";
 import AntDesign from "react-native-vector-icons/AntDesign";
 import Searching from "../components/Searching";
 
-const SearchingAndsearchable = (props) => {
+const SearchingAndListing = (props) => {
   const {
     render,
     searchable,
@@ -98,7 +98,7 @@ const SearchingAndsearchable = (props) => {
   );
 };
 
-export default SearchingAndsearchable;
+export default SearchingAndListing;
 
 const styles = StyleSheet.create({
   mainContainer: {

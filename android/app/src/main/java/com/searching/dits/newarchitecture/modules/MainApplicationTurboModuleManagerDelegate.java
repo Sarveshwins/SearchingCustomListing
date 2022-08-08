@@ -1,4 +1,4 @@
-package com.questionbank.newarchitecture.modules;
+package com.searching.dits.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
